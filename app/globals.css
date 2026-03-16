@@ -1,26 +1,193 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-cinema-base: #0a0505;
+  --color-cinema-red: #3a0c0c;
+  --color-cinema-redlight: #591616;
+  --color-cinema-gold: #d4af37;
+  --color-cinema-goldglow: #fcd34d;
+
+  --font-serif: "Playfair Display", serif;
+  --font-sans: "Inter", sans-serif;
+
+  --ease-cinema: cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* ==========================================
+   Brick Texture Background
+   ========================================== */
+.bg-brick {
+  background-color: #0d0202;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='60' viewBox='0 0 120 60'%3E%3Crect width='120' height='60' fill='%230d0202'/%3E%3Crect x='0' y='0' width='58' height='28' fill='%232b0909'/%3E%3Crect x='60' y='0' width='58' height='28' fill='%232b0909'/%3E%3Crect x='0' y='0' width='58' height='2' fill='%233f1111'/%3E%3Crect x='60' y='0' width='58' height='2' fill='%233f1111'/%3E%3Crect x='0' y='26' width='58' height='2' fill='%23000000'/%3E%3Crect x='60' y='26' width='58' height='2' fill='%23000000'/%3E%3Crect x='0' y='0' width='2' height='28' fill='%233f1111'/%3E%3Crect x='60' y='0' width='2' height='28' fill='%233f1111'/%3E%3Crect x='56' y='0' width='2' height='28' fill='%23000000'/%3E%3Crect x='116' y='0' width='2' height='28' fill='%23000000'/%3E%3Crect x='-30' y='30' width='58' height='28' fill='%232b0909'/%3E%3Crect x='30' y='30' width='58' height='28' fill='%232b0909'/%3E%3Crect x='90' y='30' width='58' height='28' fill='%232b0909'/%3E%3Crect x='-30' y='30' width='58' height='2' fill='%233f1111'/%3E%3Crect x='30' y='30' width='58' height='2' fill='%233f1111'/%3E%3Crect x='90' y='30' width='58' height='2' fill='%233f1111'/%3E%3Crect x='-30' y='56' width='58' height='2' fill='%23000000'/%3E%3Crect x='30' y='56' width='58' height='2' fill='%23000000'/%3E%3Crect x='90' y='56' width='58' height='2' fill='%23000000'/%3E%3Crect x='-30' y='30' width='2' height='28' fill='%233f1111'/%3E%3Crect x='30' y='30' width='2' height='28' fill='%233f1111'/%3E%3Crect x='90' y='30' width='2' height='28' fill='%233f1111'/%3E%3Crect x='26' y='30' width='2' height='28' fill='%23000000'/%3E%3Crect x='86' y='30' width='2' height='28' fill='%23000000'/%3E%3Crect x='146' y='30' width='2' height='28' fill='%23000000'/%3E%3C/svg%3E");
+}
+
+/* ==========================================
+   Scrollbar Hiding
+   ========================================== */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* ==========================================
+   Scroll Reveal Animation
+   ========================================== */
+.reveal-element {
+  opacity: 0.01;
+  transform: translateY(30px);
+  filter: blur(8px);
+  transition: all 1s cubic-bezier(0.25, 1, 0.5, 1);
+}
+.reveal-element.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+}
+
+/* ==========================================
+   Character-by-character Text Animation
+   ========================================== */
+.char-wrap {
+  display: inline-flex;
+  overflow: hidden;
+  vertical-align: bottom;
+}
+.char {
+  display: inline-block;
+  transform: translateY(-100%);
+  animation: textSlideDown 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+@keyframes textSlideDown {
+  0% {
+    transform: translateY(-110%);
+  }
+  100% {
+    transform: translateY(0);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* ==========================================
+   Marquee Animation & Edge Masks
+   ========================================== */
+.mask-edges {
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 15%,
+    black 85%,
+    transparent
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 15%,
+    black 85%,
+    transparent
+  );
+}
+.animate-marquee {
+  animation: marquee 40s linear infinite;
+}
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* ==========================================
+   Flashlight / Spotlight Effect
+   ========================================== */
+.spotlight-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+.spotlight-wrapper::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    800px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(212, 175, 55, 0.08),
+    transparent 40%
+  );
+  z-index: 0;
+  pointer-events: none;
+  transition: opacity 0.5s;
+  opacity: 0;
+}
+.spotlight-wrapper:hover::before {
+  opacity: 1;
+}
+
+/* ==========================================
+   Poster Card Hover Glow
+   ========================================== */
+.poster-card {
+  position: relative;
+}
+.poster-card::after {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  background: radial-gradient(
+    400px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(212, 175, 55, 0.4),
+    transparent 40%
+  );
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.poster-card:hover::after {
+  opacity: 1;
+}
+
+/* ==========================================
+   Hero Slider Transitions
+   ========================================== */
+.slide {
+  opacity: 0.01;
+  transition:
+    opacity 1s cubic-bezier(0.25, 1, 0.5, 1),
+    transform 1.5s cubic-bezier(0.25, 1, 0.5, 1);
+  transform: scale(1.05);
+}
+.slide.active {
+  opacity: 1;
+  transform: scale(1);
+  z-index: 10;
+}
+
+/* ==========================================
+   Neon Arrow Glow
+   ========================================== */
+.neon-arrow:hover {
+  filter: drop-shadow(0 0 8px rgba(252, 211, 77, 0.8));
+}
+
+/* ==========================================
+   Vintage Polaroid Review Card
+   ========================================== */
+.polaroid {
+  background: #1a1616;
+  padding: 1rem 1rem 3rem 1rem;
+  box-shadow:
+    0 4px 20px rgba(0, 0, 0, 0.5),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+  transform: rotate(calc(var(--rotation) * 1deg));
+  transition: transform 0.3s ease;
+}
+.polaroid:hover {
+  transform: rotate(0deg) scale(1.05);
+  z-index: 20;
+  box-shadow:
+    0 10px 30px rgba(212, 175, 55, 0.1),
+    inset 0 0 0 1px rgba(212, 175, 55, 0.3);
 }
