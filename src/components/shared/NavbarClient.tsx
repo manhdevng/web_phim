@@ -67,7 +67,7 @@ export default function Navbar({ user }: NavbarProps) {
               <Camera className="w-4 h-4 text-cinema-gold" strokeWidth={1.5} />
             </div>
             <span className="font-serif tracking-[0.2em] text-sm uppercase text-stone-100 hidden sm:block whitespace-nowrap drop-shadow-md">
-              Lumière
+              PhimHayViet
             </span>
           </Link>
         </div>
