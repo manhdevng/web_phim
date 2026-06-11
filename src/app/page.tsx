@@ -5,7 +5,7 @@ import MarqueeStudios from "@/features/movies/components/MarqueeStudios";
 import ReviewsMarquee from "@/features/movies/components/ReviewsMarquee";
 import Footer from "@/components/shared/Footer";
 import SpotlightWrapper from "@/components/shared/SpotlightWrapper";
-import { getMoviesBySection } from "@/features/movies/queries";
+import { getMoviesBySection, getTopRatedMovies } from "@/features/movies/queries";
 import type { Movie } from "@/types/database.types";
 
 export const revalidate = 0;
@@ -18,6 +18,7 @@ export default async function Home() {
   let romanceMovies: Movie[] = [];
   let horrorMovies: Movie[] = [];
   let animationMovies: Movie[] = [];
+  let topRatedMovies: any[] = [];
 
   try {
     [
@@ -27,7 +28,8 @@ export default async function Home() {
       actionMovies, 
       romanceMovies, 
       horrorMovies, 
-      animationMovies
+      animationMovies,
+      topRatedMovies
     ] = await Promise.all([
       getMoviesBySection("trending"), // Dùng trending cho Hero luôn
       getMoviesBySection("trending"),
@@ -36,6 +38,7 @@ export default async function Home() {
       getMoviesBySection("romance"),
       getMoviesBySection("horror"),
       getMoviesBySection("animation"),
+      getTopRatedMovies(10),
     ]);
   } catch (error) {
     console.error("[Home] Failed to fetch movies:", error);
@@ -56,6 +59,10 @@ export default async function Home() {
           
           <MovieRow title="Xu hướng hiện nay" movies={trendingMovies} />
           
+          {topRatedMovies.length > 0 && (
+            <MovieRow title="Tuyệt tác đánh giá cao" movies={topRatedMovies} />
+          )}
+
           <MarqueeStudios />
           
           <MovieRow title="Phim Việt Nam đặc sắc" movies={vnMovies} />

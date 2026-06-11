@@ -7,7 +7,7 @@ import PosterCard from "./PosterCard";
 
 interface MovieRowProps {
   title: string;
-  movies: Movie[];
+  movies: any[];
 }
 
 export default function MovieRow({ title, movies }: MovieRowProps) {
@@ -59,6 +59,7 @@ export default function MovieRow({ title, movies }: MovieRowProps) {
               subtitle={movie.subtitle || ""}
               badge={movie.badge || ""}
               movieId={movie.id}
+              rating={movie.average_rating}
             />
           </div>
         ))}

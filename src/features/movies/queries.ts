@@ -125,3 +125,41 @@ export async function checkIsWatchlisted(userId: string, movieId: string): Promi
   
   return !!data;
 }
+
+export type MovieWithRating = Movie & { average_rating?: number };
+
+/** Lấy danh sách phim được đánh giá cao nhất */
+export async function getTopRatedMovies(limit: number = 10): Promise<MovieWithRating[]> {
+  const supabase = await createClient();
+  const { data: stats } = await supabase
+    .from("movie_rating_stats")
+    .select("movie_id, average_rating")
+    .order("average_rating", { ascending: false })
+    .limit(limit);
+
+  if (!stats || stats.length === 0) return [];
+  
+  const movieIds = stats.map(s => s.movie_id);
+  const { data: movies, error } = await supabase
+    .from("movies")
+    .select("*")
+    .in("id", movieIds);
+
+  if (error) {
+    console.error("[getTopRatedMovies] Error fetching movies:", error.message);
+    return [];
+  }
+
+  // Re-order movies based on the stats order and attach average_rating
+  if (!movies) return [];
+  return movieIds
+    .map(id => {
+      const movie = movies.find(m => m.id === id);
+      const stat = stats.find(s => s.movie_id === id);
+      if (movie && stat) {
+        return { ...movie, average_rating: stat.average_rating };
+      }
+      return null;
+    })
+    .filter(Boolean) as MovieWithRating[];
+}
