@@ -4,7 +4,7 @@
  * Tiện ích chuyển đổi văn bản thành Vector (Embeddings) sử dụng Google Gemini.
  */
 
-const EMBEDDING_MODEL = "text-embedding-004";
+const EMBEDDING_MODEL = "gemini-embedding-001";
 
 async function fetchWithRetry(url: string, options: RequestInit, retries = 3, delayMs = 1500) {
   for (let i = 0; i < retries; i++) {

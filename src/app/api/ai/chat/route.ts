@@ -104,7 +104,7 @@ Yêu cầu trả lời:
 
 Câu hỏi của người dùng: "${message}"`;
 
-    const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${API_KEY}`;
+    const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-latest:generateContent?key=${API_KEY}`;
 
     const response = await fetchWithRetry(url, {
       method: "POST",
