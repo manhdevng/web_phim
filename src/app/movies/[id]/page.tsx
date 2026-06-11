@@ -7,6 +7,7 @@ import MovieInfo from "@/features/movies/components/MovieInfo";
 import RelatedMovies from "@/features/movies/components/RelatedMovies";
 import Footer from "@/components/shared/Footer";
 import AddToWatchlistButton from "@/components/shared/AddToWatchlistButton";
+import StarRating from "@/features/movies/components/StarRating";
 import { checkIsWatchlisted, getMovieById } from "@/features/movies/queries";
 import type { Movie } from "@/types/database.types";
 import MovieAIAssistant from "@/features/movies/components/MovieAIAssistant";
@@ -104,6 +105,9 @@ export default async function MovieDetailPage({ params }: MovieDetailPageProps) 
              </h1>
              <div>
                <AddToWatchlistButton movieId={movie.id} initialWatchlisted={isWatchlisted} />
+             </div>
+             <div className="mt-2">
+               <StarRating movieId={movie.id} />
              </div>
              <p className="text-stone-300 leading-relaxed mb-6">
                 {movie.description}
