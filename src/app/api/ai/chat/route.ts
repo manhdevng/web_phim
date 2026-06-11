@@ -27,6 +27,22 @@ type GeminiTextResponse = {
   };
 };
 
+async function fetchWithRetry(url: string, options: RequestInit, retries = 3, delayMs = 1500) {
+  for (let i = 0; i < retries; i++) {
+    const res = await fetch(url, options);
+    if (res.ok) return res;
+    if (res.status === 429 || res.status === 503) {
+      if (i < retries - 1) {
+        console.warn(`[API] Status ${res.status}. Retrying in ${delayMs}ms... (Attempt ${i + 1}/${retries})`);
+        await new Promise((resolve) => setTimeout(resolve, delayMs));
+        continue;
+      }
+    }
+    return res;
+  }
+  throw new Error("Max retries reached");
+}
+
 /**
  * Route: POST /api/ai/chat
  * Mục đích: Chatbot thông minh tìm kiếm phim sử dụng RAG.
@@ -88,9 +104,9 @@ Yêu cầu trả lời:
 
 Câu hỏi của người dùng: "${message}"`;
 
-    const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-latest:generateContent?key=${API_KEY}`;
+    const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${API_KEY}`;
 
-    const response = await fetch(url, {
+    const response = await fetchWithRetry(url, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
