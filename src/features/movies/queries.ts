@@ -134,6 +134,7 @@ export async function getTopRatedMovies(limit: number = 10): Promise<MovieWithRa
   const { data: stats } = await supabase
     .from("movie_rating_stats")
     .select("movie_id, average_rating")
+    .gte("average_rating", 4)
     .order("average_rating", { ascending: false })
     .limit(limit);
 
