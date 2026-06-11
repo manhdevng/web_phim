@@ -76,6 +76,25 @@ export default function AuthPage() {
     setRightBeam({ angle: -15, length: 2500 });
   }, []);
 
+  // Handle Google Login
+  const handleGoogleLogin = async () => {
+    setIsLoading(true);
+    setErrorMsg(null);
+    try {
+      const { error } = await supabase.auth.signInWithOAuth({
+        provider: "google",
+        options: {
+          redirectTo: `${window.location.origin}/auth/callback`,
+        },
+      });
+      if (error) throw error;
+    } catch (err: unknown) {
+      const message = err instanceof Error ? err.message : "";
+      setErrorMsg(message || "Đã có lỗi xảy ra khi đăng nhập bằng Google.");
+      setIsLoading(false);
+    }
+  };
+
   // Handle Form Submission
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -296,6 +315,7 @@ export default function AuthPage() {
                 <button 
                   type="button" 
                   disabled={isLoading}
+                  onClick={handleGoogleLogin}
                   className="glass-auth flex items-center justify-center px-4 py-2.5 border border-white/10 rounded-full hover:bg-white/10 hover:border-white/20 transition-all group disabled:opacity-50"
                   onFocus={updateSpotlight}
                   onMouseEnter={updateSpotlight}
