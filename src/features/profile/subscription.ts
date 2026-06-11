@@ -15,9 +15,9 @@ export function isPaidSubscription(tier: unknown): boolean {
 
 export function getSubscriptionLabel(tier: unknown): string {
   const normalized = normalizeSubscriptionTier(tier);
-  if (normalized === "VIP") return "Lumière VIP";
-  if (normalized === "Premium") return "Lumière Premium";
-  return "Lumière Free";
+  if (normalized === "VIP") return "PhimHayViet VIP";
+  if (normalized === "Premium") return "PhimHayViet Premium";
+  return "PhimHayViet Free";
 }
 
 export function getSubscriptionDescription(tier: unknown, expiresAt?: string | null): string {

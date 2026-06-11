@@ -69,7 +69,7 @@ export async function POST(request: Request) {
     });
 
     if (matchError) {
-      console.error("[LUMIÈRE AI] Match error:", matchError.message);
+      console.error("[PHIMHAYVIET AI] Match error:", matchError.message);
       return NextResponse.json({
         error: "Chưa thể tìm kiếm bằng AI. Hãy kiểm tra SQL pgvector và hàm match_movies trong Supabase.",
         details: matchError.message,
@@ -80,7 +80,7 @@ export async function POST(request: Request) {
 
     if (movies.length === 0) {
       return NextResponse.json({
-        answer: "Mình chưa tìm thấy phim phù hợp trong kho Lumière. Bạn có thể thử mô tả rõ hơn về thể loại, diễn viên hoặc nội dung muốn xem.",
+        answer: "Mình chưa tìm thấy phim phù hợp trong kho PhimHayViet. Bạn có thể thử mô tả rõ hơn về thể loại, diễn viên hoặc nội dung muốn xem.",
         movies: [],
       });
     }
@@ -91,8 +91,8 @@ export async function POST(request: Request) {
     ).join("\n") || "Không tìm thấy phim nào trong database.";
 
     // 4. Gửi cho Gemini để trả lời dựa trên ngữ cảnh
-    const prompt = `Bạn là Lumière Assistant - Trợ lý AI đặc biệt tại rạp Lumière Cinema.
-Dưới đây là các phim hiện có trong kho Lumière:
+    const prompt = `Bạn là PhimHayViet Assistant - Trợ lý AI đặc biệt tại rạp PhimHayViet Cinema.
+Dưới đây là các phim hiện có trong kho PhimHayViet:
 
 ${context}
 
@@ -127,7 +127,7 @@ Câu hỏi của người dùng: "${message}"`;
     throw new Error(data.error?.message || "Lỗi AI");
 
   } catch (error: unknown) {
-    console.error("[LUMIÈRE AI] Chat error:", error);
+    console.error("[PHIMHAYVIET AI] Chat error:", error);
     const message = error instanceof Error ? error.message : "Unknown AI error";
     return NextResponse.json({ error: message }, { status: 500 });
   }

@@ -126,7 +126,7 @@ export default function MovieAIAssistant({ description }: MovieAIAssistantProps)
             </div>
             <div>
               <h4 className="text-white font-bold flex items-center gap-2">
-                Trợ lý AI Lumière
+                Trợ lý AI PhimHayViet
                 <span className="text-[10px] bg-white/10 px-1.5 py-0.5 rounded text-white/40 uppercase tracking-tighter font-black">RAG Mode</span>
               </h4>
               <p className="text-xs text-white/40">
@@ -197,7 +197,7 @@ export default function MovieAIAssistant({ description }: MovieAIAssistantProps)
                 </div>
                 <p className="text-[10px] text-white/20 mt-2 flex items-center gap-1">
                   <Info className="w-3 h-3" />
-                  Kết quả tóm tắt dựa trên mô tả gốc từ kho phim Lumière.
+                  Kết quả tóm tắt dựa trên mô tả gốc từ kho phim PhimHayViet.
                 </p>
               </motion.div>
             ) : error ? (

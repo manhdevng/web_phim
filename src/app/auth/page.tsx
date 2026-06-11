@@ -197,7 +197,7 @@ export default function AuthPage() {
                 {isLogin ? "Đăng Nhập" : "Đăng Ký"}
               </h3>
               <p className="text-white/60 text-sm">
-                {isLogin ? "Bắt đầu hành trình điện ảnh của bạn" : "Tham gia trải nghiệm cùng Lumière"}
+                {isLogin ? "Bắt đầu hành trình điện ảnh của bạn" : "Tham gia trải nghiệm cùng PhimHayViet"}
               </p>
             </div>
 

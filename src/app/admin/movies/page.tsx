@@ -10,7 +10,7 @@ import type { Movie } from "@/types/database.types";
 import AdminMoviesClient from "./AdminMoviesClient";
 
 export const metadata = {
-  title: "Admin Movies | Lumière",
+  title: "Admin Movies | PhimHayViet",
 };
 
 export const dynamic = "force-dynamic";

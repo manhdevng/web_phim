@@ -7,7 +7,7 @@ import { createClient } from "@/lib/supabase/server";
 import { normalizeSubscriptionTier } from "@/features/profile/subscription";
 
 export const metadata = {
-  title: "Thông tin cá nhân | Lumière",
+  title: "Thông tin cá nhân | PhimHayViet",
 };
 
 export default async function ProfileLayout({ children }: { children: React.ReactNode }) {

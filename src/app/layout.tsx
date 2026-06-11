@@ -16,7 +16,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Lumière - Classic Cinema",
+  title: "PhimHayViet - Classic Cinema",
   description:
     "A curated streaming platform dedicated to classic and world cinema. Experience timeless films in stunning quality.",
 };

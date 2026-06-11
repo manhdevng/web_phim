@@ -91,7 +91,7 @@ export default function ReviewsMarquee() {
           Đánh giá từ khán giả
         </h2>
         <p className="text-sm text-stone-500 mt-2">
-          Những chia sẻ từ cộng đồng mọt phim tại Lumière.
+          Những chia sẻ từ cộng đồng mọt phim tại PhimHayViet.
         </p>
       </div>
 

@@ -31,7 +31,7 @@ export async function POST() {
       return NextResponse.json({ message: "Tất cả phim đã được đồng bộ!" });
     }
 
-    console.log(`[LUMIÈRE AI] Đang đồng bộ ${movies.length} bộ phim...`);
+    console.log(`[PHIMHAYVIET AI] Đang đồng bộ ${movies.length} bộ phim...`);
 
     const results: SyncResult[] = [];
     for (const movie of movies) {

@@ -20,7 +20,7 @@ export default function MovieGrid({ title, movies }: MovieGridProps) {
               {title}
             </h1>
           </div>
-          <p className="text-stone-500 text-lg"> Khám phá những tác phẩm điện ảnh xuất sắc nhất tại Lumière.</p>
+          <p className="text-stone-500 text-lg"> Khám phá những tác phẩm điện ảnh xuất sắc nhất tại PhimHayViet.</p>
         </header>
 
         {movies.length > 0 ? (

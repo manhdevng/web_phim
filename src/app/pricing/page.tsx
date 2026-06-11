@@ -9,7 +9,7 @@ const plans = [
     name: "Free",
     price: "0đ",
     description: "Dành cho người dùng muốn khám phá thư viện phim cơ bản.",
-    features: ["Xem trailer", "Lưu phim yêu thích", "Tìm kiếm phim trong kho Lumière"],
+    features: ["Xem trailer", "Lưu phim yêu thích", "Tìm kiếm phim trong kho PhimHayViet"],
     cta: "Bắt đầu",
     href: "/auth",
   },
@@ -25,16 +25,16 @@ const plans = [
   {
     name: "VIP",
     price: "129.000đ",
-    description: "Gói cao nhất cho nội dung độc quyền Lumière VIP.",
-    features: ["Toàn bộ quyền Premium", "Nội dung LUMIÈRE VIP", "Hỗ trợ ưu tiên", "Quyền truy cập phim mới sớm"],
+    description: "Gói cao nhất cho nội dung độc quyền PhimHayViet VIP.",
+    features: ["Toàn bộ quyền Premium", "Nội dung PHIMHAYVIET VIP", "Hỗ trợ ưu tiên", "Quyền truy cập phim mới sớm"],
     cta: "Chọn VIP",
     href: "/profile",
   },
 ];
 
 export const metadata = {
-  title: "Gói thành viên | Lumière",
-  description: "Chọn gói thành viên Lumière để mở khóa trải nghiệm xem phim cao cấp.",
+  title: "Gói thành viên | PhimHayViet",
+  description: "Chọn gói thành viên PhimHayViet để mở khóa trải nghiệm xem phim cao cấp.",
 };
 
 export default function PricingPage() {
@@ -46,7 +46,7 @@ export default function PricingPage() {
           <div className="max-w-2xl mb-10">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cinema-gold/10 border border-cinema-gold/30 text-cinema-gold text-xs font-bold uppercase tracking-widest mb-5">
               <Crown className="w-4 h-4" />
-              Lumière Membership
+              PhimHayViet Membership
             </div>
             <h1 className="font-playfair text-4xl md:text-6xl text-white mb-4">
               Chọn gói xem phim phù hợp

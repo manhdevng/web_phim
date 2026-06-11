@@ -96,7 +96,7 @@ export default function CommentSection({ movieId }: CommentSectionProps) {
         rawComments.map((item) => ({
           id: item.id,
           user_id: item.user_id,
-          user_name: profileMap.get(item.user_id) ?? "Thành viên Lumière",
+          user_name: profileMap.get(item.user_id) ?? "Thành viên PhimHayViet",
           content: item.content,
           created_at: item.created_at,
           is_admin: Boolean(item.is_admin),

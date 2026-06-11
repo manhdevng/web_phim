@@ -198,7 +198,7 @@ export default function AdminMoviesClient({
   };
 
   const deleteMovie = (movie: Movie) => {
-    const confirmed = window.confirm(`Xóa phim "${movie.title}" khỏi kho Lumière?`);
+    const confirmed = window.confirm(`Xóa phim "${movie.title}" khỏi kho PhimHayViet?`);
     if (!confirmed) return;
 
     startTransition(async () => {
@@ -227,7 +227,7 @@ export default function AdminMoviesClient({
                 Quản trị nội dung phim
               </h1>
               <p className="mt-3 max-w-2xl text-sm leading-relaxed text-stone-400 md:text-base">
-                Điều phối kho phim Lumière, chỉnh metadata, poster, phân mục và dữ liệu AI trong một không gian quản trị liquid glass.
+                Điều phối kho phim PhimHayViet, chỉnh metadata, poster, phân mục và dữ liệu AI trong một không gian quản trị liquid glass.
               </p>
             </div>
 
@@ -402,7 +402,7 @@ export default function AdminMoviesClient({
               <Field label="Năm phát hành" type="number" value={form.release_year} onChange={(value) => updateField("release_year", value)} />
               <Field label="Thời lượng" value={form.duration} onChange={(value) => updateField("duration", value)} placeholder="2h 10m" />
               <Field label="Điểm đánh giá" type="number" value={form.rating} onChange={(value) => updateField("rating", value)} placeholder="8.5" />
-              <Field label="Badge" value={form.badge} onChange={(value) => updateField("badge", value)} placeholder="LUMIERE VIP, Hot..." />
+              <Field label="Badge" value={form.badge} onChange={(value) => updateField("badge", value)} placeholder="PHIMHAYVIET VIP, Hot..." />
               <Field label="Thể loại" value={form.genre} onChange={(value) => updateField("genre", value)} placeholder="Action, Drama" />
               <Field label="Trailer URL" value={form.trailer_url} onChange={(value) => updateField("trailer_url", value)} placeholder="YouTube URL" />
               <label className="md:col-span-2 flex flex-col gap-2 text-sm text-stone-300">

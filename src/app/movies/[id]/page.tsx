@@ -24,12 +24,12 @@ export async function generateMetadata({
   const movie = await getMovieById(id);
 
   if (!movie) {
-    return { title: "Phim không tồn tại - Lumière" };
+    return { title: "Phim không tồn tại - PhimHayViet" };
   }
 
   return {
-    title: `${movie.title} - Lumière Cinema`,
-    description: movie.description || `Xem phim ${movie.title} tại Lumière Cinema`,
+    title: `${movie.title} - PhimHayViet Cinema`,
+    description: movie.description || `Xem phim ${movie.title} tại PhimHayViet Cinema`,
     openGraph: movie.poster_url
       ? { images: [{ url: movie.poster_url }] }
       : undefined,
@@ -93,7 +93,7 @@ export default async function MovieDetailPage({ params }: MovieDetailPageProps) 
           <div className="flex flex-col gap-4">
              <div className="flex items-center gap-2">
                 <span className="bg-cinema-gold text-black px-2 py-0.5 rounded text-[10px] font-black uppercase">
-                  LUMIÈRE VIP
+                  PHIMHAYVIET VIP
                 </span>
                 <span className="text-white/40 text-xs font-bold tracking-widest">
                   4K ULTRA HD • {movie.release_year}

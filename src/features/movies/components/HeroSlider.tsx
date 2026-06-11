@@ -106,7 +106,7 @@ export default function HeroSlider({ slides = [] }: HeroSliderProps) {
           >
             <div className="flex items-center gap-2">
               <span className="bg-cinema-gold text-black px-2 py-0.5 rounded text-[10px] font-black uppercase tracking-tighter">
-                LUMIÈRE VIP
+                PHIMHAYVIET VIP
               </span>
               <span className="text-white/60 text-xs font-medium tracking-widest uppercase">
                 {activeMovie.genre?.split(',')[0]} • {activeMovie.release_year}

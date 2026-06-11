@@ -7,7 +7,7 @@ export default function Footer() {
         {/* Column 1: Address */}
         <div className="flex flex-col gap-3">
           <h4 className="font-serif text-stone-300 text-lg tracking-tight">
-            Lumière Cinémathèque
+            PhimHayViet Cinémathèque
           </h4>
           <p className="text-xs font-light leading-relaxed">
             14 Rue Le Peletier
@@ -26,9 +26,9 @@ export default function Footer() {
           <p className="text-xs font-light leading-relaxed">
             SĐT: +33 1 42 68 53 20
             <br />
-            Vé: billetterie@lumiere.fr
+            Vé: billetterie@phimhayviet.fr
             <br />
-            Quản lý: direction@lumiere.fr
+            Quản lý: direction@phimhayviet.fr
           </p>
         </div>
 
@@ -49,7 +49,7 @@ export default function Footer() {
 
       <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-stone-600 pt-8 border-t border-cinema-redlight/10">
         <div className="font-serif tracking-widest uppercase text-stone-400">
-          Lumière © 2024
+          PhimHayViet © 2024
         </div>
         <div className="flex gap-4">
           <Link href="#" className="hover:text-cinema-gold transition-colors">

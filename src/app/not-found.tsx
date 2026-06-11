@@ -16,7 +16,7 @@ export default function NotFound() {
           <p className="text-xs font-bold uppercase tracking-[0.35em] text-cinema-gold">404</p>
           <h1 className="mt-3 font-playfair text-4xl text-white md:text-5xl">Không tìm thấy suất chiếu</h1>
           <p className="mx-auto mt-4 max-w-md text-sm leading-relaxed text-stone-400">
-            Trang hoặc bộ phim này không còn trong lịch chiếu Lumière.
+            Trang hoặc bộ phim này không còn trong lịch chiếu PhimHayViet.
           </p>
           <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
             <Link href="/" className="inline-flex items-center justify-center gap-2 rounded-full bg-cinema-gold px-5 py-3 text-sm font-bold text-black hover:bg-cinema-goldglow">

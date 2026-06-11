@@ -56,7 +56,7 @@ export async function GET() {
     return new NextResponse(`
       <html>
         <head>
-          <title>Lumière AI Debug</title>
+          <title>PhimHayViet AI Debug</title>
           <style>
             body { font-family: -apple-system, sans-serif; padding: 40px; background: #000; color: #fff; }
             .card { background: #111; border: 1px solid #333; padding: 20px; border-radius: 12px; margin-bottom: 20px; }
@@ -70,7 +70,7 @@ export async function GET() {
           </style>
         </head>
         <body>
-          <h1>Lumière AI - Trạng thái dữ liệu</h1>
+          <h1>PhimHayViet AI - Trạng thái dữ liệu</h1>
           
           <div class="card">
             <h2>Thống kê Database</h2>

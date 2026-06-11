@@ -102,7 +102,7 @@ export default function MoviePlayer({
     }
 
     // 2. Phim VIP + chưa có Premium -> Hiện popup
-    if (badge === "LUMIÈRE VIP" && !isPremium) {
+    if (badge === "PHIMHAYVIET VIP" && !isPremium) {
       setShowPremiumPopup(true);
       return;
     }
@@ -168,7 +168,7 @@ export default function MoviePlayer({
               </div>
               <h3 className="font-playfair text-2xl text-white font-bold">Nâng cấp Premium</h3>
               <p className="text-stone-400 text-sm mb-4">
-                Đây là nội dung độc quyền thuộc gói LUMIÈRE VIP. Hãy nâng cấp tài khoản để trải nghiệm chất lượng 4K Ultra HD không giới hạn.
+                Đây là nội dung độc quyền thuộc gói PHIMHAYVIET VIP. Hãy nâng cấp tài khoản để trải nghiệm chất lượng 4K Ultra HD không giới hạn.
               </p>
               <div className="flex flex-col gap-3 w-full">
                 <button 

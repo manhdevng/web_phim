@@ -18,7 +18,7 @@ type GeminiTextResponse = {
 };
 
 export async function GET() {
-  return NextResponse.json({ message: "Lumière AI Intelligence is active!" });
+  return NextResponse.json({ message: "PhimHayViet AI Intelligence is active!" });
 }
 
 export async function POST(request: Request) {
@@ -57,7 +57,7 @@ export async function POST(request: Request) {
 
       // Nếu bị lỗi Quota (429) hoặc Limit 0
       if (response.status === 429 || JSON.stringify(data).includes("limit: 0")) {
-        console.warn("⚠️ [LUMIÈRE AI] Quota exceeded. Using smart fallback...");
+        console.warn("⚠️ [PHIMHAYVIET AI] Quota exceeded. Using smart fallback...");
         
         // GIẢI PHÁP DỰ PHÒNG: Trả về chính xác nội dung phim truyền vào nếu AI bị quá tải
         const fallbackSummary = `(Hệ thống AI đang bảo trì, dưới đây là nội dung gốc của phim)\n\n${text}`;
